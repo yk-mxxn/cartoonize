@@ -1,4 +1,4 @@
-A small script that create cartoon like images using OpenCV
+A small script that creates cartoon like images using OpenCV
 
 | Before | After | |---|---| | 
 ![Before](examples/before.jpg) | 
@@ -8,10 +8,3 @@ A small script that create cartoon like images using OpenCV
 
 
 It's my first time doing something like this, I'm open to any suggestions and feedbacks :D
-
-
-
-
-
-
-
