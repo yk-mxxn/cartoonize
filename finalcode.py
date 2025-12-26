@@ -7,15 +7,15 @@ def cartoonize(image_path, K=5, max_dim=800, attempts=10, random_seed=42):
     img = cv2.imread(image_path)
     if img is None:
         raise FileNotFoundError(f"Could not load image: {image_path!r}")
-    # optionally resize for speed while preserving aspect ratio
+    # resize for speed while preserving aspect ratio
     h, w = img.shape[:2]
     if max(h, w) > max_dim:
         scale = max_dim / float(max(h, w))
         img = cv2.resize(img, (int(w*scale), int(h*scale)), interpolation=cv2.INTER_AREA)
 
-    # Work in BGR for OpenCV filters, but convert to RGB for display later
+    # Working in BGR for OpenCV filters, but converting to RGB for display later
     # 1) Smooth colors while keeping edges 
-    # apply bilateral several times to get strong edge-preserving smoothing
+    # applying bilateral several times to get strong edge-preserving smoothing
     smoothed = img.copy()
     for _ in range(3):
         smoothed = cv2.bilateralFilter(smoothed, d=9, sigmaColor=75, sigmaSpace=75)
@@ -64,4 +64,5 @@ if __name__ == "__main__":
     plt.imshow(cartoon)
     plt.title("Cartoonized")
     plt.axis("off")
+
     plt.show()
