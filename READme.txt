@@ -1,10 +1,11 @@
 A small script that creates cartoon like images using OpenCV
 
-| Before | After | |---|---| | 
-![Before](examples/before.jpg) | 
-![After](examples/after.png) |
+| before | after | |---|---| | 
+![before](examples/before.jpg) | 
+![after](examples/after.png) |
 
 
 
 
 It's my first time doing something like this, I'm open to any suggestions and feedbacks :D
+
