@@ -1,5 +1,4 @@
-A small script that creates cartoon like images using OpenCV
-
+This is a simple Python tool that uses OpenCV to instantly transform regular photos into cartoon-style artwork using median blurring and adaptive thresholding.
 
 
 <table>
@@ -11,7 +10,9 @@ A small script that creates cartoon like images using OpenCV
 
 
 
-It's my first time doing something like this, I'm open to any suggestions and feedbacks :D
+In order to run the code, instal open OpenCV and Matplotlib; open command propmpt and type:
+```bash
+pip install opencv-python matplotlibs 
 
 
 
