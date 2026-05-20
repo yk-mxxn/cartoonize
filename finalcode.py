@@ -19,7 +19,6 @@ def cartoonize(image_path, K=5, max_dim=800, attempts=10, random_seed=42):
     # 2) Color quantization via k-means
     Z = smoothed.reshape((-1, 3)).astype(np.float32)
 
-    # kmeans criteria and flags
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
     flags = cv2.KMEANS_PP_CENTERS 
 
