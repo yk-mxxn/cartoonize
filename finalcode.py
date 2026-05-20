@@ -3,31 +3,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def cartoonize(image_path, K=5, max_dim=800, attempts=10, random_seed=42):
-    # load
-    img = cv2.imread(image_path)
+    img = cv2.imread("input.jpg")
     if img is None:
         raise FileNotFoundError(f"Could not load image: {image_path!r}")
-    # resize for speed while preserving aspect ratio
     h, w = img.shape[:2]
     if max(h, w) > max_dim:
         scale = max_dim / float(max(h, w))
         img = cv2.resize(img, (int(w*scale), int(h*scale)), interpolation=cv2.INTER_AREA)
 
-    # Working in BGR for OpenCV filters, but converting to RGB for display later
     # 1) Smooth colors while keeping edges 
-    # applying bilateral several times to get strong edge-preserving smoothing
     smoothed = img.copy()
     for _ in range(3):
         smoothed = cv2.bilateralFilter(smoothed, d=9, sigmaColor=75, sigmaSpace=75)
 
     # 2) Color quantization via k-means
-    # convert to float32 for kmeans
     Z = smoothed.reshape((-1, 3)).astype(np.float32)
 
     # kmeans criteria and flags
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-    flags = cv2.KMEANS_PP_CENTERS  # better initialization
-    # set rng seed for reproducibility
+    flags = cv2.KMEANS_PP_CENTERS 
+
     cv2.setRNGSeed(random_seed)
     compactness, label, center = cv2.kmeans(Z, K, None, criteria, attempts, flags)
 
