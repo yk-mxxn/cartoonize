@@ -10,8 +10,7 @@ This is a simple Python tool that uses OpenCV to instantly transform regular pho
 
 
 
-In order to run the code, instal open OpenCV and Matplotlib; open command propmpt and type:
-```bash
+In order to run the code, instal open OpenCV and Matplotlib; open command prompt and type:
 pip install opencv-python matplotlibs 
 
 
