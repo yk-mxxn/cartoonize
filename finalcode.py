@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def cartoonize(image_path, K=5, max_dim=800, attempts=10, random_seed=42):
-    img = cv2.imread("input.jpg")
+    img = cv2.imread("fun.jpg")
     if img is None:
         raise FileNotFoundError(f"Could not load image: {image_path!r}")
     h, w = img.shape[:2]
